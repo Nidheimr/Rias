@@ -1,0 +1,6 @@
+.cache
+build/
+bin/
+
+build.bat
+compile_flags.txt
