@@ -1,23 +1,20 @@
 cmake_minimum_required(VERSION 3.20)
 project(Rias C)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 # ------------------------------------
 # output directory
 # ------------------------------------
 
-set(STD_OUTPUT                              ${CMAKE_SOURCE_DIR}/bin/)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY          ${STD_OUTPUT})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG    ${STD_OUTPUT})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE  ${STD_OUTPUT})
+set(STD_OUTPUT                     ${CMAKE_SOURCE_DIR}/bin/)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${STD_OUTPUT})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${STD_OUTPUT})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${STD_OUTPUT})
 
 # ------------------------------------
-# executable
+# library
 # ------------------------------------
 
-add_executable(Rias
-    src/main.c
+add_library(Rias STATIC
     src/rias_impl.c
 )
 
