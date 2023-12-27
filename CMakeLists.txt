@@ -14,10 +14,22 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${STD_OUTPUT})
 # library
 # ------------------------------------
 
-add_library(Rias STATIC
+set(SRC_FILES
     src/rias_impl.c
 )
 
-target_include_directories(Rias PRIVATE
+add_library(libRias STATIC ${SRC_FILES})
+set_target_properties(libRias PROPERTIES 
+    PREFIX      "lib"
+    OUTPUT_NAME "Rias"
+)
+
+add_executable(testRias src/test.c ${SRC_FILES})
+set_target_properties(testRias PROPERTIES
+    PREFIX      "test"
+    OUTPUT_NAME "Rias"
+)
+
+include_directories(
     ${CMAKE_SOURCE_DIR}/include/
 )
