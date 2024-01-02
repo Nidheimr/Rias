@@ -26,7 +26,7 @@ set_target_properties(libRias PROPERTIES
 
 add_executable(testRias src/test.c ${SRC_FILES})
 set_target_properties(testRias PROPERTIES
-    PREFIX      "test"
+    PREFIX      ""
     OUTPUT_NAME "Rias"
 )
 
