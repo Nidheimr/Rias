@@ -24,11 +24,12 @@ set_target_properties(libRias PROPERTIES
     OUTPUT_NAME "Rias"
 )
 
-add_executable(testRias src/test.c ${SRC_FILES})
+add_executable(testRias src/test.c)
 set_target_properties(testRias PROPERTIES
-    PREFIX      ""
+    PREFIX      "test"
     OUTPUT_NAME "Rias"
 )
+target_link_libraries(testRias libRias)
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/include/
