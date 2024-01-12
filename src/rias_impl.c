@@ -70,11 +70,24 @@ void deallocate(void* address)
     }
 }
 
+void destroy_allocations()
+{
+    allocation_t* end = alloc_head->next;
+    while (end != NULL)
+    {
+        allocation_t* cur = end;
+        end = end->next;
+        free(cur);
+    }
+
+    free(alloc_head);
+}
+
 // --------------------------------
 // Stdlib wrappers
 // --------------------------------
 
-void* r_malloc(const char* file, const char* func, int line, size_t size)
+void* rias_malloc(const char* file, const char* func, int line, size_t size)
 {
     void* naddr = malloc(size);
  
@@ -86,7 +99,7 @@ void* r_malloc(const char* file, const char* func, int line, size_t size)
     return naddr;
 }
 
-void* r_calloc(const char* file, const char* func, int line, int num, int size)
+void* rias_calloc(const char* file, const char* func, int line, int num, int size)
 {
     void* naddr = calloc(num, size);
     
@@ -98,7 +111,7 @@ void* r_calloc(const char* file, const char* func, int line, int num, int size)
     return naddr;
 }
 
-void* r_realloc(const char* file, const char* func, int line, void* address, int newsize)
+void* rias_realloc(const char* file, const char* func, int line, void* address, int newsize)
 {
     void* naddr = realloc(address, newsize);
     
@@ -111,7 +124,7 @@ void* r_realloc(const char* file, const char* func, int line, void* address, int
     return naddr;
 }
 
-void r_free(void* address)
+void rias_free(void* address)
 {
     if (address != NULL)
     {
@@ -125,26 +138,13 @@ void r_free(void* address)
 // Lifetime
 // --------------------------------
 
-void r_init_allocations()
+void rias_initialise()
 {
     alloc_head = malloc(sizeof(allocation_t));
     alloc_head->next = NULL;
 }
 
-void r_destroy_allocations()
-{
-    allocation_t* end = alloc_head->next;
-    while (end != NULL)
-    {
-        allocation_t* cur = end;
-        end = end->next;
-        free(cur);
-    }
-
-    free(alloc_head);
-}
-
-void r_dump_leaks()
+void rias_dump_leaks_and_terminate()
 {
     allocation_t* cur = alloc_head->next;
     
@@ -162,4 +162,6 @@ void r_dump_leaks()
         cur = cur->next;
     }
     printf("\n");
+
+    destroy_allocations();
 }

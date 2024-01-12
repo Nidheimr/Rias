@@ -16,37 +16,15 @@ Build the project and link the resulting library to your program, then use the h
 
 You must include `rias.h` into the file with your main function, and any other file that plans on using memory functions.
 
-## Configuration
+## Usage
 
-By default, Rias will define over the C memory functions and the main function, meaning after including, you do not need to do anything else.
+By default, Rias will define over the C memory functions, meaning after including, you do not need to do replace any existing C memory functions.
 
-### Disable Main Hijacking
+There is some setup in the main function however.
 
-If you do not want Rias to define over the main function, you can define this before Rias is included:
+At the very start of the main function, use `rias_initialise();` to begin tracking allocations.
 
-```c
-#define RIAS_DONT_HIJACK_MAIN
-```
-
-***WARNING:*** *If you choose to do this in file, as opposed to a compiler definition, you will need to do this before every include of `rias.h`.*
-
-However, for Rias to properly function without hijacking main you must do the following:
-
-```c
-int main()
-{
-	// start of main: initialise
-	r_init_allocations();
-	
-	// ... your code ...
-	
-	// end of main: dump leaks and terminate
-	r_dump_leaks();
-	r_destroy_allocations();
-	
-	return 0;
-}
-```
+At the very end of the main function, before the return, use `rias_dump_leaks_and_terminate();` to print all memory leaks, if any.
 
 ### Disable Memory Function Hijacking
 

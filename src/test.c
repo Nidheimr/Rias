@@ -1,8 +1,11 @@
 #include "rias.h"
+#include "rias_impl.h"
 
 // TEST: main hijack
 int main()
 {
+    rias_initialise();
+
     // TEST: hijacked malloc
     int* m = malloc(sizeof(int));
 
@@ -19,5 +22,6 @@ int main()
 
     // TEST: purposely leak m
 
+    rias_dump_leaks_and_terminate();
     return 0;
 }
