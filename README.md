@@ -14,7 +14,7 @@ Build the project and link the resulting library to your program, then use the h
 
 **THEN**
 
-You must include `rias.h` into the file with your main function, and any other file that plans on using memory functions. You may use this header instead of `stdlib.h` as it is implicitely included.
+You must include `rias.h` into the file with your main function, and any other file that plans on using memory functions.
 
 ## Configuration
 
