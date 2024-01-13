@@ -39,10 +39,10 @@ If you do not want Rias to define over memory functions, you can define this bef
 Then, you can use the Rias memory functions:
 
 ```c
-void* r_malloc(const char* file, const char* func, int line, size_t size);
-void* r_calloc(const char* file, const char* func, int line, int num, int size);
-void* r_realloc(const char* file, const char* func, void* address, int newsize);
-void r_free(void* address);
+void* rias_malloc(const char* file, const char* func, int line, size_t size);
+void* rias_calloc(const char* file, const char* func, int line, int num, int size);
+void* rias_realloc(const char* file, const char* func, void* address, int newsize);
+void  rias_free(void* address);
 ```
 
 Note, each of these functions take file, function, and line parameters; these are used for tracking where (de)allocations happen. If you use them manually, you can put whatever you want in them, or use `NULL` (or 0 for line) to ignore them.
