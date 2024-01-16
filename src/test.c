@@ -1,5 +1,4 @@
 #include "rias.h"
-#include "rias_impl.h"
 
 // TEST: main hijack
 int main()
