@@ -1,2 +1,5 @@
 build/
 bin/
+
+compile_flags.txt
+build.bat
