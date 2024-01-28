@@ -8,7 +8,7 @@ project(Rias C)
 # this has to account for visual studio DEBUG and RELEASE
 # which makes this 3x harder than necessary
 
-set(STD_OUTPUT                     ${CMAKE_SOURCE_DIR}/bin/)
+set(STD_OUTPUT                              ${CMAKE_SOURCE_DIR}/bin/)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG    ${STD_OUTPUT})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE  ${STD_OUTPUT})
