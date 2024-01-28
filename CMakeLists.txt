@@ -26,7 +26,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY          ${STD_OUTPUT})
 # library target
 # ------------------------------------
 
-add_library(libRias STATIC
+add_library(Rias STATIC
     src/rias_impl.c
 )
 
@@ -39,6 +39,6 @@ include_directories(
 # ------------------------------------
 
 if (BUILD_TEST_TARGET)
-    add_executable(testRias src/test.c)
-    target_link_libraries(testRias libRias)
+    add_executable(RiasTest src/test.c)
+    target_link_libraries(RiasTest Rias)
 endif()
