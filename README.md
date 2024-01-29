@@ -8,11 +8,7 @@ Rias is a library that provides the ability to track memory allocations and deal
 
 ### Windows
 
-Add `rias_impl.c` to your project and compile it with your program, then use the headers as normal.
-
-**OR**
-
-Build the project and link the resulting library to your program, then use the headers as normal.
+Using CMake, generate the Visual Studio solution then use MSBuild to build it.
 
 ## Usage
 
