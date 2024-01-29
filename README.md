@@ -4,7 +4,9 @@
 
 Rias is a small memory manager/leak detector for C that I wrote, because I get paranoid about memory leaks. It is nowhere near perfect and probably very inefficient on both memory and processing. But it works, so hey.
 
-## Installation
+## Building
+
+### Windows
 
 Add `rias_impl.c` to your project and compile it with your program, then use the headers as normal.
 
@@ -12,11 +14,9 @@ Add `rias_impl.c` to your project and compile it with your program, then use the
 
 Build the project and link the resulting library to your program, then use the headers as normal.
 
-**THEN**
-
-You must include `rias.h` into the file with your main function, and any other file that plans on using memory functions.
-
 ## Usage
+
+Include `rias.h` wherever you plan on using memory functions.
 
 By default, Rias will define over the C memory functions, meaning after including, you do not need to do replace any existing C memory functions.
 
