@@ -2,7 +2,7 @@
 
 ## Overview
 
-Rias is a small memory manager/leak detector for C that I wrote, because I get paranoid about memory leaks. It is nowhere near perfect and probably very inefficient on both memory and processing. But it works, so hey.
+Rias is a library that provides the ability to track memory allocations and deallocations, dumping any leaks at the end of the program.
 
 ## Building
 
