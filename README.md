@@ -6,9 +6,7 @@ Rias is a library that provides the ability to track memory allocations and deal
 
 ## Building
 
-### Windows
-
-Using CMake, generate the Visual Studio solution then use MSBuild to build it.
+The provided `CMakeLists.txt` file will generate your choice of build files, use those to build this project.
 
 ## Usage
 
